@@ -16,30 +16,33 @@ public class Interfaz {
         int opcion = 0;
 
         do {
-            System.out.println("----- MENU -----");
-            System.out.println("a. Ingresar producto");
-            System.out.println("b. Facturar producto");
-            System.out.println("c. Imprimir factura");
-            System.out.println("d. Salir");
+            System.out.println("==========================================");
+            System.out.println("Seleccione una opcion:");
+            System.out.println("1. Ingresar producto");
+            System.out.println("2. Facturar producto");
+            System.out.println("3. Imprimir factura");
+            System.out.println("4. Salir");
+            System.out.println("==========================================");
             System.out.print("Ingrese una opción: ");
 
             opcion = scanner.nextLine().toLowerCase().charAt(0);
 
             switch (opcion) {
-                case 'a':
+                case '1':
                     ingresarProducto();
                     break;
-                case 'b':
+                case '2':
                     facturarProducto();
                     break;
-                case 'c':
+                case '3':
                     imprimirFactura();
                     break;
-                case 'd':
+                case '4':
+                    System.out.println("ERROR");
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
-                    System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
+                    System.out.println("Opción invalida. Por favor, ingrese una opción valida.");
                     break;
             }
 
@@ -48,7 +51,7 @@ public class Interfaz {
     }
 
     private void ingresarProducto() {
-        System.out.println("Has seleccionado la opción 'Ingresar producto'.");
+        System.out.println("==========================================");
         System.out.println("Ingrese el nombre del producto:");
         String nombre = scanner.nextLine();
         System.out.println("Ingrese el precio normal del producto:");
@@ -61,7 +64,7 @@ public class Interfaz {
         Producto producto = new Producto(nombre, precioNormal, precioMayorista, unidadesMayorista);
         productos.add(producto);
 
-        scanner.nextLine(); // Consumir el salto de línea
+        scanner.nextLine();
 
         System.out.println("Producto ingresado exitosamente.");
 
@@ -73,7 +76,7 @@ public class Interfaz {
     }
 
     private void facturarProducto() {
-        System.out.println("Has seleccionado la opción 'Facturar producto'.");
+        System.out.println("==========================================");
 
         if (productos.isEmpty()) {
             System.out.println("No hay productos ingresados. Por favor, ingrese al menos un producto.");
@@ -107,7 +110,7 @@ public class Interfaz {
     }
 
     private void imprimirFactura() {
-        System.out.println("Has seleccionado la opción 'Imprimir factura'.");
+        System.out.println("==========================================");
 
         if (productos.isEmpty()) {
             System.out.println("No hay productos ingresados. Por favor, ingrese al menos un producto.");
