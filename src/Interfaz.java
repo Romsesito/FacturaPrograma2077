@@ -16,14 +16,18 @@ public class Interfaz {
         int opcion = 0;
 
         do {
+            System.out.print("\u001B[1m\u001B[3m");
             System.out.println("==========================================");
-            System.out.println("Seleccione una opcion:");
+            System.out.println("Seleccione una opción:");
+            System.out.print("\u001B[0m");
             System.out.println("1. Ingresar producto");
             System.out.println("2. Facturar producto");
             System.out.println("3. Imprimir factura");
             System.out.println("4. Salir");
+            System.out.print("\u001B[1m\u001B[3m");
             System.out.println("==========================================");
             System.out.print("Ingrese una opción: ");
+            System.out.print("\u001B[0m");
 
             opcion = scanner.nextLine().toLowerCase().charAt(0);
 
@@ -51,6 +55,7 @@ public class Interfaz {
     }
 
     private void ingresarProducto() {
+        System.out.print("\u001B[1m\u001B[3m");
         System.out.println("==========================================");
         System.out.println("Ingrese el nombre del producto:");
         String nombre = scanner.nextLine();
@@ -60,7 +65,7 @@ public class Interfaz {
         double precioMayorista = scanner.nextDouble();
         System.out.println("Ingrese el número de unidades para aplicar el precio al por mayor:");
         int unidadesMayorista = scanner.nextInt();
-
+        System.out.print("\u001B[0m");
         Producto producto = new Producto(nombre, precioNormal, precioMayorista, unidadesMayorista);
         productos.add(producto);
 
