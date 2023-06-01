@@ -7,6 +7,7 @@ public class Interfaz {
     private List<Producto> productos;
     private int cantidadUnidades;
 
+
     public Interfaz() {
         scanner = new Scanner(System.in);
         productos = new ArrayList<>();
@@ -112,13 +113,18 @@ public class Interfaz {
         System.out.println("Ingrese la cantidad de unidades del producto:");
         this.cantidadUnidades = scanner.nextInt();
 
-        // Lógica para facturar el producto con la cantidad de unidades seleccionada
-        // ...
+
 
         scanner.nextLine();
     }
+    private static final String patito = "\u001B[33m";
+    private static final String mrwhait = "\u001B[0m";
 
     private void imprimirFactura() {
+
+
+
+
         System.out.println("==========================================");
 
         if (productos.isEmpty()) {
@@ -126,7 +132,14 @@ public class Interfaz {
             return;
         }
 
-        System.out.println("----- FACTURA -----");
+        System.out.print(patito +"__     __ _    _  _____   _____\n");
+        System.out.print("\\ \\   / /| |  | ||  __ \\ |_   _|\n");
+        System.out.print(" \\ \\_/ / | |  | || |__) |  | |\n");
+        System.out.print("  \\   /  | |  | ||  ___/   | |\n");
+        System.out.print("   | |   | |__| || |      _| |_\n");
+        System.out.print("   |_|    \\____/ |_|     |_____|\n" + mrwhait);
+
+        System.out.println("----- DATOS DE FACTURACION -----");
         System.out.println("Ingrese el nombre del comprador:");
         String nombreComprador = scanner.nextLine();
         System.out.println("Ingrese el número de cédula del comprador:");
@@ -152,12 +165,20 @@ public class Interfaz {
 
         double descuento = Descuento.calcularDescuento(subtotal);
         double totalConDescuento = Descuento.calcularTotalConDescuento(subtotal);
-
+        System.out.println("==========================================");
+        System.out.println("Cliente: " + nombreComprador);
+        System.out.println("Cédula del comprador: " + cedulaComprador);
+        System.out.println("==========================================");
         System.out.println("Subtotal: $" + subtotal);
         System.out.println("Descuento: " + (descuento * 100) + "%");
         System.out.println("Total con descuento: $" + totalConDescuento);
-        System.out.println("Comprador: " + nombreComprador);
-        System.out.println("Cédula del comprador: " + cedulaComprador);
+        System.out.println("==========================================");
+        System.out.print(patito +"__     __ _    _  _____   _____\n");
+        System.out.print("\\ \\   / /| |  | ||  __ \\ |_   _|\n");
+        System.out.print(" \\ \\_/ / | |  | || |__) |  | |\n");
+        System.out.print("  \\   /  | |  | ||  ___/   | |\n");
+        System.out.print("   | |   | |__| || |      _| |_\n");
+        System.out.print("   |_|    \\____/ |_|     |_____|\n" + mrwhait);
     }
 
 
