@@ -23,7 +23,8 @@ public class Interfaz {
             System.out.println("1. Ingresar producto");
             System.out.println("2. Facturar producto");
             System.out.println("3. Imprimir factura");
-            System.out.println("4. Salir");
+            System.out.println("4. Borrar Productos");
+            System.out.println("5. Salir");
             System.out.print("\u001B[1m\u001B[3m");
             System.out.println("==========================================");
             System.out.print("Ingrese una opción: ");
@@ -42,9 +43,12 @@ public class Interfaz {
                     imprimirFactura();
                     break;
                 case '4':
-                    System.out.println("ERROR");
-                    System.out.println("Saliendo del programa...");
+                    borrarProducto();
                     break;
+
+                case '5':
+                    System.out.println("Finalizando Ejecucion");
+                    return;
                 default:
                     System.out.println("Opción invalida. Por favor, ingrese una opción valida.");
                     break;
@@ -155,4 +159,33 @@ public class Interfaz {
         System.out.println("Comprador: " + nombreComprador);
         System.out.println("Cédula del comprador: " + cedulaComprador);
     }
+
+
+    private void borrarProducto() {
+        if (productos.isEmpty()) {
+            System.out.println("No hay productos en lista.");
+            return;
+        }
+
+        System.out.println("Seleccione un producto para borrar:");
+        for (int i = 0; i < productos.size(); i++) {
+            Producto producto = productos.get(i);
+            System.out.println((i + 1) + ". " + producto.getNombre());
+        }
+
+        int opcionProducto = scanner.nextInt();
+        scanner.nextLine();
+
+        if (opcionProducto < 1 || opcionProducto > productos.size()) {
+            System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+            return;
+        }
+
+        Producto productoBorrar = productos.get(opcionProducto - 1);
+        productos.remove(productoBorrar);
+        System.out.println("Producto borrado exitosamente.");
+    }
+
 }
+
+
